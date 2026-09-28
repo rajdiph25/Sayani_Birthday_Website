@@ -1,0 +1,150 @@
+*{box-sizing:border-box}
+:root{
+  --pink:#e85b9d;
+  --hot:#d93683;
+  --soft:#fff4f8;
+  --ink:#3b2934;
+  --muted:#8e7180;
+  --cream:#fffdfd;
+}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{
+  background:#fff9fb;color:var(--ink);
+  font-family:"DM Sans",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+button,input{font:inherit}
+button{cursor:pointer}
+main{width:100%;height:100%;position:relative}
+.screen{
+  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;padding:28px;
+  opacity:0;visibility:hidden;transform:scale(.98);
+  transition:opacity .65s ease,transform .8s cubic-bezier(.2,.8,.2,1),visibility .65s;
+  overflow:hidden;background:
+    radial-gradient(circle at 50% 42%,#fff 0,#fffafb 45%,#fff1f7 100%);
+}
+.screen.active{opacity:1;visibility:visible;transform:scale(1);z-index:2}
+.tiny{
+  text-transform:uppercase;letter-spacing:.24em;font-size:11px;color:#aa8495;
+  margin-bottom:15px
+}
+.tiny.light{color:#ffd4e7}
+.script{font-family:"Great Vibes",cursive;font-size:clamp(68px,15vw,125px);font-weight:400;color:var(--hot);margin:0 0 20px;text-shadow:0 10px 30px #ef8dbb33}
+.heart-wrap{position:relative;margin:5px 0 14px}
+.glow-heart,.big-heart,.final-heart{
+  border:0;background:none;color:#f064a2;
+  text-shadow:0 0 8px #ffafd0,0 0 35px #f56da955;
+}
+.glow-heart{font-size:82px;animation:beat 1.25s infinite;filter:drop-shadow(0 8px 18px #ef6fa766)}
+.hint{font-size:12px;color:#a88b98;letter-spacing:.08em}
+.sparkles{color:#e98aae;font-size:16px;margin-top:20px;opacity:.8}
+.big-heart{font-size:125px;animation:float 2.8s ease-in-out infinite}
+.reveal-line{font-family:"Cormorant Garamond",serif;font-size:25px;line-height:1.3;color:#563b48}
+.reveal-line em{color:var(--hot)}
+.primary{
+  margin-top:25px;border:0;border-radius:999px;padding:13px 22px;
+  background:#e95798;color:white;box-shadow:0 10px 28px #e9579840;
+  transition:.25s
+}
+.primary:hover{transform:translateY(-2px);box-shadow:0 14px 32px #e9579850}
+.primary span{margin-left:8px}
+.pink-screen{background:linear-gradient(135deg,#e84491,#f47fb2 48%,#d93282)}
+.birthday-title{
+  font-family:"Cormorant Garamond",serif;text-transform:uppercase;
+  color:#fff;font-size:clamp(70px,17vw,150px);line-height:.73;
+  font-weight:700;letter-spacing:-.055em;margin:15px 0 20px;
+  text-shadow:0 9px 35px #9b185244
+}
+.birthday-title span{font-style:italic}
+.name-line{
+  font-family:"Great Vibes",cursive;color:#ffe9f3;font-size:46px;margin-bottom:8px
+}
+.subtitle{font-size:14px;line-height:1.7;color:#7f6371;max-width:450px}
+.pink-screen .subtitle{color:#ffe4ef}
+.circle-next{
+  position:absolute;bottom:28px;border:1px solid #ffffff66;background:#ffffff1e;
+  color:white;width:45px;height:45px;border-radius:50%;font-size:22px
+}
+.confetti{position:absolute;inset:0;pointer-events:none;opacity:.55;background:
+ radial-gradient(circle at 14% 18%,#fff 0 2px,transparent 3px),
+ radial-gradient(circle at 80% 23%,#ffd7e9 0 2px,transparent 3px),
+ radial-gradient(circle at 23% 78%,#fff 0 2px,transparent 3px),
+ radial-gradient(circle at 87% 72%,#fff 0 2px,transparent 3px),
+ radial-gradient(circle at 53% 13%,#ffc2dd 0 2px,transparent 3px)}
+.balloon-tree{position:relative;width:min(380px,82vw);height:330px;margin:5px 0 5px}
+.balloon-cloud{position:absolute;left:50%;top:12px;width:260px;height:235px;transform:translateX(-50%);
+  background:
+   radial-gradient(circle at 15% 62%,#f59cc2 0 23px,transparent 24px),
+   radial-gradient(circle at 34% 30%,#f7bfd6 0 27px,transparent 28px),
+   radial-gradient(circle at 51% 19%,#f18bb7 0 30px,transparent 31px),
+   radial-gradient(circle at 69% 30%,#f7a9ca 0 27px,transparent 28px),
+   radial-gradient(circle at 86% 58%,#ed86b5 0 25px,transparent 26px),
+   radial-gradient(circle at 27% 64%,#ef73ab 0 30px,transparent 31px),
+   radial-gradient(circle at 50% 54%,#f8c2d9 0 35px,transparent 36px),
+   radial-gradient(circle at 70% 62%,#e95f9e 0 31px,transparent 32px),
+   radial-gradient(circle at 48% 83%,#ed72a9 0 25px,transparent 26px);
+  filter:drop-shadow(0 14px 18px #df6d9b2e);animation:treeFloat 4s ease-in-out infinite
+}
+.tree-trunk{position:absolute;left:50%;top:200px;width:5px;height:112px;transform:translateX(-50%);
+ background:#b66d89;border-radius:99px}
+.tree-trunk:after{content:"";position:absolute;bottom:0;left:50%;width:115px;height:2px;background:#d69db4;transform:translateX(-50%)}
+.falling-hearts:before,.falling-hearts:after{content:"♡  ♡  ♡  ♡  ♡";position:absolute;left:5%;top:20px;color:#ef8ab4;letter-spacing:30px;animation:fall 5s linear infinite;opacity:.65}
+.falling-hearts:after{left:65%;top:-20px;animation-delay:1.6s}
+.tree-title{font-family:"Great Vibes",cursive;font-weight:400;color:#d85891;font-size:44px;margin:0 0 4px}
+.tree-title span{color:#e15c97}
+#letter{background:#fff9fb}
+.letter-card{
+  width:min(560px,92vw);max-height:86vh;overflow:auto;padding:38px 34px;
+  background:#fff;box-shadow:0 25px 70px #b8587d1c;border:1px solid #f7e4ec;
+  position:relative
+}
+.letter-card:before{content:"";position:absolute;inset:9px;border:1px solid #f4dce7;pointer-events:none}
+.letter-top{color:#d96699;letter-spacing:.18em;text-transform:uppercase;font-size:10px}
+.letter-card h2{font-family:"Great Vibes";font-size:53px;font-weight:400;color:#d9508d;margin:12px 0 20px}
+.letter-card p{font-family:"Cormorant Garamond",serif;font-size:20px;line-height:1.55;color:#604755;max-width:460px;margin:12px auto}
+.signature{margin-top:25px!important;color:#a55b7c!important}
+.signature strong{font-family:"Great Vibes";font-size:31px;font-weight:400;color:#d9508d}
+.section-title{font-family:"Cormorant Garamond",serif;font-size:43px;margin:0 0 22px;color:#553541}
+.photo-grid{width:min(650px,92vw);display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.photo-card{height:145px;background:#fff;border:1px dashed #e7bdce;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer}
+.photo-card input{display:none}
+.photo-card img{display:none;width:100%;height:100%;object-fit:cover}
+.photo-card.has-image img{display:block}
+.photo-card.has-image span{display:none}
+.photo-card span{color:#c77c9b;font-size:12px;letter-spacing:.08em}
+.upload-note{font-size:10px;color:#aa8998;margin:12px 0 0}
+.final-screen{background:linear-gradient(160deg,#2d1727,#531f3e 52%,#9c356d)}
+.final-glow{position:absolute;width:70vw;height:70vw;max-width:700px;max-height:700px;border-radius:50%;background:#ed75ae2e;filter:blur(60px)}
+.final-heart{font-size:70px;color:#ff8fbe;position:relative;animation:beat 1.3s infinite}
+.final-title{font-family:"Cormorant Garamond";font-size:clamp(60px,13vw,100px);line-height:.82;color:white;margin:8px 0 22px;position:relative}
+.final-title span{font-family:"Great Vibes";color:#ff9bc5;font-weight:400}
+.final-copy{color:#f9dce9;font-size:14px;line-height:1.8;position:relative}
+.final-line{height:1px;width:80px;background:#e998b8;margin:18px}
+.small-end{font-size:10px;color:#dcb4c8;letter-spacing:.1em;position:relative}
+.restart{position:relative;margin-top:20px;border:1px solid #ffffff44;background:#ffffff10;color:#ffe8f1;border-radius:99px;padding:9px 15px;font-size:11px}
+.music-btn{
+ position:fixed;right:18px;top:18px;z-index:20;width:40px;height:40px;border-radius:50%;
+ border:1px solid #e8bfd0;background:#fff9;color:#c95488;box-shadow:0 8px 25px #9d416b1a
+}
+.music-add{
+ position:fixed;right:18px;bottom:18px;z-index:20;border:0;border-radius:99px;
+ background:#ffffffdd;color:#b34d7c;font-size:10px;padding:8px 11px;box-shadow:0 6px 22px #9d416b18
+}
+.progress{position:fixed;top:0;left:0;right:0;height:2px;background:#ffffff22;z-index:30}
+.progress span{display:block;height:100%;width:14%;background:#e65b98;transition:width .6s}
+#petals{position:fixed;inset:0;pointer-events:none;z-index:10;overflow:hidden}
+.petal{position:absolute;top:-30px;color:#ef8eb5;font-size:13px;animation:petalFall linear forwards;opacity:.65}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.13)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes treeFloat{0%,100%{transform:translateX(-50%) rotate(-1deg)}50%{transform:translateX(-50%) rotate(1deg) translateY(-5px)}}
+@keyframes fall{0%{transform:translateY(-30px)}100%{transform:translateY(380px)}}
+@keyframes petalFall{to{transform:translate3d(var(--drift),110vh,0) rotate(450deg)}}
+@media(max-width:520px){
+ .screen{padding:20px}
+ .letter-card{padding:30px 22px}
+ .photo-card{height:125px}
+ .section-title{font-size:36px}
+ .tree-title{font-size:38px}
+ .music-add{bottom:12px}
+}
